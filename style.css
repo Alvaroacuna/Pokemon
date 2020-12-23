@@ -1,5 +1,37 @@
-img {
+#container {
+    background-image: url("atras.png");   
+}
+#encabezado img {
+    margin: auto;
+    display: block;
+    border-style: solid black;
+    height: 100px;
+}
+#encabezado img.pokeball {
+    display: block;
+}
+#pokedex {
+    margin: auto;
     border-style: double;
+    text-align: center;
+    height: 520px;
+}
+#icono img {
+    border-style: inset;
     display: inline-block;
-
+    margin: 10px;
+    padding: 10px;
+}
+#pokemones {
+    margin-top: 50px;
+}
+#pokemones img {
+    border-style: outset;
+    margin: 10px;
+    padding: 10px;
+    display: inline-block;
+    background-image: url("Campo_de_batalla_DPPt_2.png");
+} 
+#icono {
+    margin-top: 50px;
 }

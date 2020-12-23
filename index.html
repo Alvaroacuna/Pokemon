@@ -10,6 +10,10 @@
 <body>
 
     <div id="container">
+        <div id="encabezado">
+            <img src="logo-pokemon.png">
+            <img class="pokeball" src="pokeball.png">
+        </div>
         <div class="row" id="pokemones">
             <div id="pokedex">
                 <div id="icono"></div>
@@ -50,7 +54,7 @@
             });
 
             $(document).on('click', '#pokemones img', function() {
-                var id = $(this).attr("id");;
+                var id = $(this).attr("id");
                 $.get("https://pokeapi.co/api/v2/pokemon/"+id+"/", function(datos){
                     console.log(datos);
                     var lista = "<ul>";
