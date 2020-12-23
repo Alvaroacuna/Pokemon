@@ -12,9 +12,12 @@
 }
 #pokedex {
     margin: auto;
+    display: block;
     border-style: double;
+    border-radius: 10px;
     text-align: center;
-    height: 520px;
+    height: 550px;
+    width: 250px;
 }
 #icono img {
     border-style: inset;
