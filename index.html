@@ -12,8 +12,8 @@
     <div id="container">
         <div class="row" id="pokemones">
             <div id="pokedex">
-                <div id="informacion"></div>
                 <div id="icono"></div>
+                <div id="informacion"></div>
             </div>
             <div id="pokemon"></div>
         </div>
@@ -25,8 +25,8 @@
 
     <script>
 
-        $(document).ready(function(){
-            for (var i=1; i<151; i++){
+        // $(document).ready(function(){ 
+            /* for (var i=1; i<151; i++){ 
                 $('#pokemones').append('<img id='+i+' src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/'+i+'.png">')
             }
             
@@ -41,22 +41,41 @@
                     $("#bulbasaur").html(html_str);              
                 },"json"
             );
-
+ */
             
+            $(document).ready(function() {
+                for (var i = 1; i <= 151; i++) {
+                    $('#pokemones').append('<img id ='+i+' src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/'+i+'.png">')
+                }
+            });
+
             $(document).on('click', '#pokemones img', function() {
-                var id= $(this).attr("id");
+                var id = $(this).attr("id");;
                 $.get("https://pokeapi.co/api/v2/pokemon/"+id+"/", function(datos){
                     console.log(datos);
-                    var lista = "<h6>Tipos:</h6><ul>";
+                    var lista = "<ul>";
+                    $('#icono').html(
+                        '<img id= '+ id +' src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/'+id+'.png">');
                     
                     for (var i = 0; i < datos.types.length; i++) {
-                        lista += "<li>" + datos.types[i].name + "</li>";
+                        lista += "<li>" + datos.types[i].type.name + "</li>";
+                        
                     }
 
+                    lista += "</ul>";
 
-                    })
-                })
-        })
+                    $('#informacion').html(
+                        "<h1>" + datos.name + "</h1>" +
+                        "<h3>Types:</h3>" + lista +
+                        "<h3>Height:</h3>" +
+                        "<p>" + datos.height + "</p>" +
+                        "<h3>Weight:</h3>" +
+                        "<p>" + datos.weight + "</p>"
+
+                    );
+
+                    }, "json");
+                });
 
                 
 
